@@ -8,7 +8,7 @@ Frontend Mentor challenges help you improve your coding skills by building reali
 
 To do this challenge, you need a good understanding of HTML, CSS and JavaScript.
 
-The challenge
+# The challenge
 Your challenge is to build out this todo app and get it looking as close to the design as possible.
 
 You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
@@ -26,7 +26,7 @@ Toggle light and dark mode
 Bonus: Drag and drop to reorder items on the list
 Want some support on the challenge? Join our Slack community and ask questions in the #help channel.
 
-Where to find everything
+# Where to find everything
 Your task is to build out the project to the designs inside the /design folder. You will find both a mobile and a desktop version of the design.
 
 The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as font-size, padding and margin.
@@ -37,7 +37,7 @@ You will find all the required assets in the /images folder. The assets are alre
 
 There is also a style-guide.md file containing the information you'll need, such as color palette and fonts.
 
-Building your project
+# Building your project
 Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
 
 Initialize your project as a public repository on GitHub. Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, have a read-through of this Try Git resource.
@@ -49,7 +49,7 @@ Start adding styles to the top of the page and work down. Only move on to the ne
 Deploying your project
 As mentioned above, there are many ways to host your project for free. Our recommend hosts are:
 
-GitHub Pages
+# GitHub Pages
 Vercel
 Netlify
 You can host your site using one of these solutions or any of our other trusted providers. Read more about our recommended and trusted hosts.
