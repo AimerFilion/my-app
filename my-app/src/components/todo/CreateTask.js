@@ -1,20 +1,15 @@
 import { useState, useEffect } from "react";
 import Data from "../Data";
-import TodoList from "./TodoList";
-const TodoForm = () => {
+import Todo from "./Todo";
+const CreateTask = ({ addTask }) => {
   // if you had press enter on the keyboard a new task will be add
 
   //   state to keep track of the value in the input
-  const [addNewTask, setNewTask] = useState("");
+  const [task, setTask] = useState("");
   //   state to keep track of the todo data
   const [data, setData] = useState([]);
-  console.log(Data);
-  // state to get item from localstorage
-  // const [items, setItems] = useState(() => {
-  //   const savedItem = localStorage.getItem("todo");
-  //   const parsedItem = JSON.parse(savedItem);
-  //   return parsedItem || "";
-  // });
+
+  const [newTask, setNewTask] = useState([]);
 
   useEffect(() => {
     localStorage.setItem("todo", JSON.stringify(data));
@@ -23,20 +18,19 @@ const TodoForm = () => {
   // to get the value of the input and set the new state
   function handleInputChange(e) {
     // set the new state value to what's currently in the input box
-    setNewTask(e.target.value);
-    console.log(e.target.value);
+    console.log(setTask === e.target.value);
   }
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (addNewTask) {
+    if (task) {
       const newTodo = {
         id: data.length + 1,
-        content: addNewTask.trim(),
+        content: task.trim(),
         completed: false,
       };
-      setData([newTodo, ...data]);
-      setNewTask("");
+      console.log(setData([newTodo, ...Data]));
+      setTask("");
     }
   }
 
@@ -48,7 +42,7 @@ const TodoForm = () => {
           type="text"
           name="todo-input"
           placeholder="Create a new todo..."
-          value={addNewTask}
+          value={task}
           onChange={handleInputChange}
         />
 
@@ -56,9 +50,9 @@ const TodoForm = () => {
           Add
         </button>
       </form>
-      <TodoList Data={Data} />
+      <Todo Data={Data} />
     </div>
   );
 };
 
-export default TodoForm;
+export default CreateTask;

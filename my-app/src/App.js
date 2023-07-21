@@ -1,12 +1,12 @@
 import "./App.css";
 import Header from "./components/Header";
-import TodoForm from "./components/todo/TodoForm";
+import CreateTask from "./components/todo/CreateTask";
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <TodoForm />
+      <CreateTask />
     </div>
   );
 }
