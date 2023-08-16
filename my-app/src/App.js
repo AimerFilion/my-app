@@ -1,14 +1,13 @@
-import "./App.css";
-import Header from "./components/Header";
-import CreateTask from "./components/todo/CreateTask";
+import "./style.css";
+import Container from "./Container";
+import { DarkModeProvider } from "./DarkModeContext";
 
-function App() {
+export default function App() {
   return (
     <div className="App">
-      <Header />
-      <CreateTask />
+      <DarkModeProvider>
+        <Container />
+      </DarkModeProvider>
     </div>
   );
 }
-
-export default App;
