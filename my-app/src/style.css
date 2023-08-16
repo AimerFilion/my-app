@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+
+.App {
+  text-align: center;
+}
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 400;
+  margin: 0 auto;
+  padding: 0 auto;
+}
+/* .container-todo {
+  border: white 2px solid;
+} */
+
+.title {
+  /* font-size: 10rem; */
+  position: absolute;
+  top: 1.5em;
+  left: 15em;
+  color: white;
+  letter-spacing: 0.4em;
+}
+li {
+  font-size: 1.1rem;
+}
+
+.todo-list li {
+  display: row; /* Display tasks in a row */
+  align-items: center; /* Center items vertically within each row */
+  list-style: none;
+  height: 4.4rem;
+  gap: 2.4rem;
+  border-bottom: 0.1em solid grey;
+  background-color: white;
+  padding: 2.5em 0.5em 0 4em;
+  margin: 0 18em 0 26em;
+  box-shadow: 0 5px 20px 10px hsl(236, 33%, 92%);
+}
+
+.todo-list li img {
+  width: 20px; /* Adjust the size as needed */
+  margin-right: 10px; /* Add margin to create space between checkbox and task content */
+}
+
+/* Additional styling for the CreateTask component */
+/* Add your styles for CreateTask component here */
+
+.input {
+  padding: 1.5em 20em 1.5em 2em;
+  border: white;
+  border-radius: 6px;
+  position: absolute;
+  top: 10em;
+  left: 37em;
+  font-family: "Josefin Sans", sans-serif;
+}
+.Container {
+  height: 100vh;
+  width: 100vw;
+}
+
+.Container-dark {
+  background-color: hsl(235, 21%, 11%);
+}
+
+.Container-light {
+  background-color: hsl(0, 0%, 98%);
+  color: hsl(235, 19%, 35%);
+}
+
+.Lightswitch {
+  position: absolute;
+  top: 4.2em;
+  left: 56em;
+}
+
+.hero-image {
+  width: 100%;
+}
+
+.check {
+  /* position: absolute;
+  top: 0.3em; */
+}
+.circle {
+  cursor: pointer;
+  width: 1.5%;
+  height: 0;
+  padding-bottom: 1.5%;
+  border-radius: 50%;
+
+  position: absolute;
+  left: 31.5em;
+  background: linear-gradient(45deg, #57ddff, #c058f3);
+}
+.uncheck {
+  cursor: pointer;
+  width: 1.5%;
+  height: 0;
+  padding-bottom: 1.5%;
+  border-radius: 50%;
+  border: lightblue solid 1px;
+  position: absolute;
+  left: 31.5em;
+}
+.completed {
+  text-decoration: line-through;
+  /* You can adjust the styling as needed */
+}
