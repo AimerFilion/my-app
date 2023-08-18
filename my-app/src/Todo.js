@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import check from "./images/icon-check.svg";
 import CreateTask from "./CreateTask";
 
@@ -12,24 +12,7 @@ const Todo = () => {
     { content: "Complete Todo App on Frontend Mentor", completed: false },
   ]);
 
-  useEffect(() => {
-    try {
-      localStorage.setItem("tasks", JSON.stringify(tasks));
-    } catch (error) {
-      console.error("Error storing tasks in localStorage:", error);
-    }
-  }, [tasks]);
-
-  useEffect(() => {
-    try {
-      const storedTasks = localStorage.getItem("tasks");
-      if (storedTasks) {
-        setTasks(JSON.parse(storedTasks));
-      }
-    } catch (error) {
-      console.error("Error retrieving tasks from localStorage:", error);
-    }
-  }, []);
+  const [filter, setFilter] = useState("All");
 
   const addTask = (content) => {
     const newTasks = [...tasks, { content, completed: false }];
@@ -40,8 +23,23 @@ const Todo = () => {
     const newTasks = [...tasks];
     newTasks[index].completed = !newTasks[index].completed;
     setTasks(newTasks);
-    console.log(index);
   };
+
+  const deleteTask = () => {
+    const uncompletedTasks = tasks.filter((task) => !task.completed);
+    setTasks(uncompletedTasks);
+  };
+
+  const filteredTasks = tasks.filter((task) => {
+    if (filter === "All") {
+      return true; // Keep all tasks
+    } else if (filter === "Active") {
+      return !task.completed; // Keep only tasks that are not completed
+    } else if (filter === "Completed") {
+      return task.completed; // Keep only tasks that are completed
+    }
+    return true; // Default: Keep all tasks
+  });
 
   return (
     <div>
@@ -49,10 +47,13 @@ const Todo = () => {
         <CreateTask addTask={addTask} />
         <div className="todo-list-container">
           <ul className="todo-list">
-            {tasks.map((task, index) => (
-              <li key={index} className={task.completed ? "completed" : ""}>
+            {filteredTasks.map((task, index) => (
+              <li
+                key={index}
+                className={task.completed ? "completed" : "uncompleted"}
+              >
                 {/* toggleTaskCompletion function inside the onClick handler of each task, enable the ability to toggle the completed status for each individual task. */}
-                <span
+                <div
                   className="circle"
                   key={index}
                   onClick={() => toggleTaskCompletion(index)}
@@ -60,11 +61,36 @@ const Todo = () => {
                   {task.completed && (
                     <img className="check" src={check} alt="check" />
                   )}
-                </span>
+                </div>
                 {task.content}
               </li>
             ))}
           </ul>
+        </div>
+        <div className="filteredTasks">
+          <span>{tasks.length} items left</span>
+          <span
+            onClick={() => {
+              setFilter("All");
+            }}
+          >
+            All
+          </span>
+          <span
+            onClick={() => {
+              setFilter("Active");
+            }}
+          >
+            Active
+          </span>
+          <span
+            onClick={() => {
+              setFilter("Completed");
+            }}
+          >
+            Completed
+          </span>
+          <span onClick={deleteTask}>Clear completed</span>
         </div>
       </div>
     </div>
