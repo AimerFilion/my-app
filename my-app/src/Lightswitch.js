@@ -3,8 +3,10 @@ import { DarkModeContext } from "./DarkModeContext";
 
 import sun from "./images/icon-sun.svg";
 import moon from "./images/icon-moon.svg";
-import imagedark from "../src/images/bg-desktop-dark.jpg";
-import imageLight from "../src/images/bg-desktop-light.jpg";
+import mobileDark from "../src/images/bg-mobile-dark.jpg";
+import mobileLight from "../src/images/bg-mobile-light.jpg";
+import desktopDark from "../src/images/bg-desktop-dark.jpg";
+import desktopLight from "../src/images/bg-desktop-light.jpg";
 
 function Lightswitch() {
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
@@ -13,17 +15,16 @@ function Lightswitch() {
   };
   return (
     <>
-      <div className="hero">
-        <img
-          className="hero-image"
-          src={darkMode ? imagedark : imageLight}
-          alt="Lightswitch on"
-          onCLick={handleClick}
-        />
-      </div>
+      <img
+        className="hero-image"
+        src={darkMode ? mobileDark : mobileLight}
+        alt="Lightswitch on"
+        onCLick={handleClick}
+      />
 
-      <div className="Lightswitch">
+      <div className="column">
         <img
+          className="lightSwitch"
           src={darkMode ? sun : moon}
           alt="Lightswitch on"
           onClick={handleClick}

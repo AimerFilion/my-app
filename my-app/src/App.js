@@ -1,4 +1,3 @@
-import "./style.css";
 import Container from "./Container";
 import { DarkModeProvider } from "./DarkModeContext";
 

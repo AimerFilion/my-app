@@ -1,0 +1,38 @@
+// theme colors
+// creating map
+
+$colors: (
+  "primary": hsl(220, 98%, 61%),
+  "check": linear-gradient(hsl(192, 100%, 67%) to hsl(280, 87%, 65%)),
+);
+
+// Light theme
+$light: (
+  "list": hsl(0, 0%, 98%),
+  "line": hsl(236, 33%, 92%),
+  "background": hsl(233, 11%, 95%),
+  "primaryFont": hsl(235, 19%, 35%),
+  "secondaryFont": hsl(237, 9%, 61%),
+);
+
+// Dark theme
+$dark: (
+  background: hsl(235, 21%, 11%),
+  list: hsl(235, 24%, 19%),
+  line: hsl(234, 39%, 85%),
+  hover: hsl(236, 33%, 92%),
+  secondaryFont: hsl(234, 11%, 52%),
+  primaryFont: hsl(233, 14%, 35%),
+  unknownYet: hsl(237, 14%, 26%),
+);
+
+// Typography
+$typo: (
+  "fontSize": 0.8rem,
+  "family": (
+    "Josefin Sans",
+    sans-serif,
+  ),
+  "weightOne": 400,
+  "weightTwo": 700,
+);

@@ -14,6 +14,7 @@ const CreateTask = ({ addTask }) => {
 
   return (
     <form onSubmit={handleSubmit}>
+      <div className="circle"></div>
       <input
         type="text"
         className="input"

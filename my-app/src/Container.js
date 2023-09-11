@@ -1,26 +1,25 @@
 import { useContext } from "react";
-// import { CheckModeContext } from "./CheckModeContext";
 import { DarkModeContext } from "./DarkModeContext";
-//
-import { checkIcon } from "./images/icon-check.svg";
-//
 import Lightswitch from "./Lightswitch";
 import Todo from "./Todo";
 
 function Container() {
-  const { darkMode } = useContext(DarkModeContext);
-  // const { checkMode } = useContext(CheckModeContext);
+  // const { darkMode } = useContext(DarkModeContext);
 
   return (
     <>
-      <Lightswitch />
-      <h1 className="title">TODO</h1>
-
-      <div
-        className={
-          darkMode ? `Container Container-dark` : `Container Container-light`
-        }
-      >
+      <div className="hero">
+        <div className="container">
+          <h1 className="title">TODO</h1>
+          <Lightswitch />
+          {/* <div
+            className={
+              darkMode
+                ? `container container-dark`
+                : `container container-light`
+            }
+          ></div> */}
+        </div>
         <Todo />
       </div>
     </>

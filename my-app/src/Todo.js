@@ -52,23 +52,31 @@ const Todo = () => {
                 key={index}
                 className={task.completed ? "completed" : "uncompleted"}
               >
-                {/* toggleTaskCompletion function inside the onClick handler of each task, enable the ability to toggle the completed status for each individual task. */}
                 <div
-                  className="circle"
+                  className={`circle ${task.completed ? "completed" : ""}`}
                   key={index}
                   onClick={() => toggleTaskCompletion(index)}
                 >
                   {task.completed && (
-                    <img className="check" src={check} alt="check" />
+                    <div className="circle-check">
+                      <img className="check" src={check} alt="check" />
+                    </div>
                   )}
                 </div>
                 {task.content}
               </li>
             ))}
+            <li>
+              {tasks.length} items left{" "}
+              <span className="" onClick={deleteTask}>
+                {" "}
+                Clear completed
+              </span>
+            </li>
           </ul>
         </div>
+
         <div className="filteredTasks">
-          <span>{tasks.length} items left</span>
           <span
             onClick={() => {
               setFilter("All");
@@ -90,7 +98,6 @@ const Todo = () => {
           >
             Completed
           </span>
-          <span onClick={deleteTask}>Clear completed</span>
         </div>
       </div>
     </div>
