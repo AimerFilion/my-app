@@ -14,7 +14,6 @@ const CreateTask = ({ addTask }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="circle"></div>
       <input
         type="text"
         className="input"
@@ -22,6 +21,7 @@ const CreateTask = ({ addTask }) => {
         value={value}
         onChange={(e) => setValue(e.target.value)}
       />
+      <div className="circle"></div>
     </form>
   );
 };

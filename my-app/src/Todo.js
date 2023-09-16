@@ -29,6 +29,11 @@ const Todo = () => {
     const uncompletedTasks = tasks.filter((task) => !task.completed);
     setTasks(uncompletedTasks);
   };
+  const itemsLeft = () => {
+    const incompleteTasks = tasks.filter((task) => !task.completed);
+    const count = incompleteTasks.length;
+    return count;
+  };
 
   const filteredTasks = tasks.filter((task) => {
     if (filter === "All") {
@@ -63,41 +68,41 @@ const Todo = () => {
                     </div>
                   )}
                 </div>
-                {task.content}
+                <div className="line-through">{task.content}</div>
               </li>
             ))}
             <li>
-              {tasks.length} items left{" "}
-              <span className="" onClick={deleteTask}>
-                {" "}
+              <span className="items">{itemsLeft()} items left</span>
+              <span className="clear" onClick={deleteTask}>
                 Clear completed
               </span>
             </li>
           </ul>
-        </div>
 
-        <div className="filteredTasks">
-          <span
-            onClick={() => {
-              setFilter("All");
-            }}
-          >
-            All
-          </span>
-          <span
-            onClick={() => {
-              setFilter("Active");
-            }}
-          >
-            Active
-          </span>
-          <span
-            onClick={() => {
-              setFilter("Completed");
-            }}
-          >
-            Completed
-          </span>
+          <div className="filteredTasks">
+            <span
+              onClick={() => {
+                setFilter("All");
+              }}
+            >
+              All
+            </span>
+            <span
+              onClick={() => {
+                setFilter("Active");
+              }}
+            >
+              Active
+            </span>
+            <span
+              onClick={() => {
+                setFilter("Completed");
+              }}
+            >
+              Completed
+            </span>
+          </div>
+          <span className="drag">Drag and drop to reorder list</span>
         </div>
       </div>
     </div>
