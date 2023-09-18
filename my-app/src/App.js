@@ -1,12 +1,18 @@
-import Container from "./Container";
-import { DarkModeProvider } from "./DarkModeContext";
+import Lightswitch from "./Lightswitch";
+import Todo from "./Todo";
+import { useState } from "react";
 
-export default function App() {
+const App = () => {
+  const [darkMode, setDarkMode] = useState(true);
+  const themeClass = darkMode ? "light" : "dark";
   return (
-    <div className="App">
-      <DarkModeProvider>
-        <Container />
-      </DarkModeProvider>
+    <div className={`wrapper ${themeClass}`}>
+      <div className="container">
+        <Lightswitch darkMode={darkMode} setDarkMode={setDarkMode} />
+        <Todo darkMode={darkMode} setDarkMode={setDarkMode} />
+      </div>
     </div>
   );
-}
+};
+
+export default App;

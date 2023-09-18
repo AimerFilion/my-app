@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import check from "./images/icon-check.svg";
 import CreateTask from "./CreateTask";
 
-const Todo = () => {
+const Todo = ({ darkMode, setDarkMode }) => {
   const [tasks, setTasks] = useState([
     { content: "Complete online JavaScript course", completed: true },
     { content: "Jog around the park 3x", completed: false },
@@ -47,18 +47,22 @@ const Todo = () => {
   });
 
   return (
-    <div>
+    <>
       <div>
         <CreateTask addTask={addTask} />
-        <div className="todo-list-container">
-          <ul className="todo-list">
+        <div className="container-list">
+          <ul className="list">
             {filteredTasks.map((task, index) => (
               <li
                 key={index}
-                className={task.completed ? "completed" : "uncompleted"}
+                className={`${task.completed ? "completed" : "uncompleted"} ${
+                  darkMode ? "light" : "dark"
+                }`}
               >
                 <div
-                  className={`circle ${task.completed ? "completed" : ""}`}
+                  className={`circle ${task.completed ? "completed" : ""} ${
+                    darkMode ? "light" : "dark"
+                  }`}
                   key={index}
                   onClick={() => toggleTaskCompletion(index)}
                 >
@@ -71,7 +75,7 @@ const Todo = () => {
                 <div className="line-through">{task.content}</div>
               </li>
             ))}
-            <li>
+            <li className={darkMode ? "light" : "dark"}>
               <span className="items">{itemsLeft()} items left</span>
               <span className="clear" onClick={deleteTask}>
                 Clear completed
@@ -79,10 +83,10 @@ const Todo = () => {
             </li>
           </ul>
 
-          <div className="filteredTasks">
+          <div className={`filteredTasks ${darkMode ? "" : "dark"}`}>
             <span
               onClick={() => {
-                setFilter("All");
+                setFilter(filter);
               }}
             >
               All
@@ -105,7 +109,7 @@ const Todo = () => {
           <span className="drag">Drag and drop to reorder list</span>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
