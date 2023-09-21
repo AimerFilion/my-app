@@ -48,9 +48,10 @@ const Todo = ({ darkMode, setDarkMode }) => {
 
   return (
     <>
-      <div>
-        <CreateTask addTask={addTask} />
-        <div className="container-list">
+      <div className="container-list">
+        <div>
+          <CreateTask addTask={addTask} />
+
           <ul className="list">
             {filteredTasks.map((task, index) => (
               <li
@@ -75,37 +76,37 @@ const Todo = ({ darkMode, setDarkMode }) => {
                 <div className="line-through">{task.content}</div>
               </li>
             ))}
-            <li className={darkMode ? "light" : "dark"}>
+            <li className={darkMode ? "light last" : "dark"}>
               <span className="items">{itemsLeft()} items left</span>
               <span className="clear" onClick={deleteTask}>
                 Clear completed
               </span>
             </li>
+            <div className={`filteredTasks ${darkMode ? "" : "dark"}`}>
+              <span
+                onClick={() => {
+                  setFilter(filter);
+                }}
+              >
+                All
+              </span>
+              <span
+                onClick={() => {
+                  setFilter("Active");
+                }}
+              >
+                Active
+              </span>
+              <span
+                onClick={() => {
+                  setFilter("Completed");
+                }}
+              >
+                Completed
+              </span>
+            </div>
           </ul>
 
-          <div className={`filteredTasks ${darkMode ? "" : "dark"}`}>
-            <span
-              onClick={() => {
-                setFilter(filter);
-              }}
-            >
-              All
-            </span>
-            <span
-              onClick={() => {
-                setFilter("Active");
-              }}
-            >
-              Active
-            </span>
-            <span
-              onClick={() => {
-                setFilter("Completed");
-              }}
-            >
-              Completed
-            </span>
-          </div>
           <span className="drag">Drag and drop to reorder list</span>
         </div>
       </div>

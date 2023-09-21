@@ -8,6 +8,8 @@ import desktopLight from "../src/images/bg-desktop-light.jpg";
 function Lightswitch({ darkMode, setDarkMode }) {
   const switchThemeIcon = darkMode ? sun : moon;
   const switchBackground = darkMode ? mobileLight : mobileDark;
+  const desktopBackground = darkMode ? desktopLight : desktopDark;
+
   const handleClick = () => {
     setDarkMode(!darkMode);
   };
@@ -15,10 +17,16 @@ function Lightswitch({ darkMode, setDarkMode }) {
   return (
     <div className="header">
       <img
-        className="hero-image"
+        className="mobile__background"
         src={switchBackground}
         alt="background"
         onCLick={handleClick}
+      />
+      <img
+        className="desktop__background"
+        src={desktopBackground}
+        alt="background desktop"
+        onclick={handleClick}
       />
       <h1 className="title">TODO</h1>
 

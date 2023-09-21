@@ -1,9 +1,13 @@
 // theme colors
 // creating map
+$mobile: 767px;
+$tablet: 768px;
+$desktop: 1024px;
+$big: 414px;
 
 $colors: (
   "primary": hsl(220, 98%, 61%),
-  "check": linear-gradient(hsl(192, 100%, 67%) to hsl(280, 87%, 65%)),
+  "check": linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%)),
 );
 
 // Light theme
