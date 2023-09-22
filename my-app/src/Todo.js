@@ -49,66 +49,64 @@ const Todo = ({ darkMode, setDarkMode }) => {
   return (
     <>
       <div className="container-list">
-        <div>
-          <CreateTask addTask={addTask} />
+        <CreateTask addTask={addTask} darkMode={darkMode} />
 
-          <ul className="list">
-            {filteredTasks.map((task, index) => (
-              <li
-                key={index}
-                className={`${task.completed ? "completed" : "uncompleted"} ${
+        <ul className="list">
+          {filteredTasks.map((task, index) => (
+            <li
+              key={index}
+              className={`${task.completed ? "completed" : "uncompleted"} ${
+                darkMode ? "light" : "dark"
+              }`}
+            >
+              <div
+                className={`circle ${task.completed ? "completed" : ""} ${
                   darkMode ? "light" : "dark"
                 }`}
+                key={index}
+                onClick={() => toggleTaskCompletion(index)}
               >
-                <div
-                  className={`circle ${task.completed ? "completed" : ""} ${
-                    darkMode ? "light" : "dark"
-                  }`}
-                  key={index}
-                  onClick={() => toggleTaskCompletion(index)}
-                >
-                  {task.completed && (
-                    <div className="circle-check">
-                      <img className="check" src={check} alt="check" />
-                    </div>
-                  )}
-                </div>
-                <div className="line-through">{task.content}</div>
-              </li>
-            ))}
-            <li className={darkMode ? "light last" : "dark"}>
-              <span className="items">{itemsLeft()} items left</span>
-              <span className="clear" onClick={deleteTask}>
-                Clear completed
-              </span>
+                {task.completed && (
+                  <div className="circle-check">
+                    <img className="check" src={check} alt="check" />
+                  </div>
+                )}
+              </div>
+              <div className="line-through">{task.content}</div>
             </li>
-            <div className={`filteredTasks ${darkMode ? "" : "dark"}`}>
-              <span
-                onClick={() => {
-                  setFilter(filter);
-                }}
-              >
-                All
-              </span>
-              <span
-                onClick={() => {
-                  setFilter("Active");
-                }}
-              >
-                Active
-              </span>
-              <span
-                onClick={() => {
-                  setFilter("Completed");
-                }}
-              >
-                Completed
-              </span>
-            </div>
-          </ul>
+          ))}
+          <li className={darkMode ? "light last" : "dark last"}>
+            <span className="items">{itemsLeft()} items left</span>
+            <span className="clear" onClick={deleteTask}>
+              Clear completed
+            </span>
+          </li>
+          <div className={`filteredTasks ${darkMode ? "" : "dark"}`}>
+            <span
+              onClick={() => {
+                setFilter(filter);
+              }}
+            >
+              All
+            </span>
+            <span
+              onClick={() => {
+                setFilter("Active");
+              }}
+            >
+              Active
+            </span>
+            <span
+              onClick={() => {
+                setFilter("Completed");
+              }}
+            >
+              Completed
+            </span>
+          </div>
+        </ul>
 
-          <span className="drag">Drag and drop to reorder list</span>
-        </div>
+        <span className="drag">Drag and drop to reorder list</span>
       </div>
     </>
   );

@@ -1,7 +1,8 @@
 import { useState } from "react";
 
-const CreateTask = ({ addTask }) => {
+const CreateTask = ({ addTask, darkMode }) => {
   //   state to keep track of the value in the input
+
   const [value, setValue] = useState("");
 
   const handleSubmit = (e) => {
@@ -16,12 +17,14 @@ const CreateTask = ({ addTask }) => {
     <form onSubmit={handleSubmit}>
       <input
         type="text"
-        className="input"
+        className={`input ${darkMode ? "" : "dark"}`}
         placeholder="Create a new todo..."
         value={value}
         onChange={(e) => setValue(e.target.value)}
       />
-      <div className="circle"></div>
+      <div className="circle">
+        <span className="circle"></span>
+      </div>
     </form>
   );
 };

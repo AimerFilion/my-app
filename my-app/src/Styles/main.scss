@@ -8,85 +8,114 @@
 *::before,
 *::after {
   margin: 0;
-  padding: 0 auto;
+  padding: 0;
   box-sizing: border-box;
 }
 body {
   font-family: map.get($typo, "family");
   font-size: map.get($typo, "fontSize");
+  background-color: map.get($light, "background");
 }
 img {
   width: 100%;
 }
 
-div.wrapper {
-  width: 100vw;
-  height: 120vh;
-  // background-repeat: no-repeat;
-  // background-position: top center;
-  // background-size: contain;
-  display: flex;
-  flex-direction: column;
+.wrapper {
+  width: 100%;
+
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: contain;
+  padding-top: 5em;
+
+  // padding: 10em;
+
+  .container {
+    max-width: 35em;
+    margin: 0 auto;
+  }
 
   &.wrapper.light {
-    background-color: map.get($light, "background");
+    background-image: url(../images/bg-mobile-light.jpg);
+
+    @include tablet {
+      background-image: url(../images/bg-desktop-light.jpg);
+    }
+    @include desktop {
+      background-image: url(../images/bg-desktop-light.jpg);
+    }
   }
 
   &.wrapper.dark {
+    height: 100vh;
     background-color: map.get($dark, "container");
     color: map.get($dark, "font");
+    background-image: url(../images/bg-mobile-dark.jpg);
+    @include tablet {
+      background-image: url(../images/bg-desktop-dark.jpg);
+    }
+    @include desktop {
+      background-image: url(../images/bg-desktop-dark.jpg);
+    }
   }
 
   .container-list {
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-    // @include desktop {
-    //   left: 34em;
-    // }
-    // @include tablet {
-    //   left: 15em;
-    // }
-  }
+    & input.input {
+      border: white;
+      margin-bottom: 2.5em;
+      width: 100%;
+      height: 3rem;
+      font-size: 0.9em;
+      border-radius: 6px;
+      font-family: map.get($typo, "family");
+      display: flex;
+      align-items: start;
+      // margin: 0 2.5em 2.5em 0;
+      padding-right: 16em;
+      padding-left: 3em;
+      // gap: 1.5em;
 
-  & input {
-    padding: 1.7em 17em 1.7em 1.5em;
-    margin: 0 0 1.5em 3.5em;
-    font-size: 0.9em;
-    border-radius: 6px;
-    font-family: map.get($typo, "family");
-  }
+      &.dark {
+        background-color: map.get($dark, "todo");
+        border: map.get($dark, "todo");
+        color: map.get($dark, "font");
+      }
 
-  &.light input {
-    border: white;
-  }
-
-  &.dark input {
-    background-color: map.get($dark, "todo");
-    border: map.get($dark, "todo");
-    color: map.get($dark, "font");
-  }
-
-  input:hover {
-    outline: none;
+      &:hover {
+        outline: none;
+      }
+    }
+    ul.list {
+      // margin: 0;
+      list-style-type: none;
+    }
   }
 
   li {
-    list-style-type: none;
     display: flex;
     flex-direction: row;
+    justify-content: flex-start;
     align-items: center;
     border-bottom: 0.1em solid map.get($light, "line");
     background-color: white;
-    padding: 1.5em 2.5em 1.5em 2em;
-    // margin-right: 3em;
+    padding: 0 2.5em 0 2.5em;
+    gap: 1.5em;
+    height: 3rem;
+    width: 100%;
 
     &.last {
       border-bottom-left-radius: 6px 6px;
       border-bottom-right-radius: 6px 6px;
       border-bottom: none;
+      &.dark {
+        border-bottom-left-radius: 6px 6px;
+        border-bottom-right-radius: 6px 6px;
+        border-bottom: none;
+      }
     }
 
     &.dark {
@@ -114,7 +143,7 @@ div.wrapper {
       height: 20px;
       border-radius: 50%;
       border: solid 0.1em map.get($light, "line");
-      margin-right: 1em;
+      // margin-right: 1em;
       transition: border-color 0.3s;
 
       &:hover {
@@ -147,39 +176,13 @@ div.wrapper {
       color: map.get($light, "secondaryFont");
 
       &.clear {
-        margin-left: 8.5em;
-      }
-    }
-
-    .filteredTasks {
-      background-color: white;
-      padding: 1.2em 0 1.2em 0em;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      font-size: 0.9rem;
-      border-radius: 6px;
-      margin: 1.5em 2.5em 0 2.7em;
-      font-weight: map-get($typo, "weightTwo");
-      color: map-get($light, "secondaryFont");
-
-      &.dark {
-        background-color: map-get($dark, "todo");
-        color: map-get($dark, "secondFont");
-      }
-
-      span {
-        margin: 0 0.7em 0 0.7em;
-      }
-      span:hover {
-        color: map.get($colors, "primary");
+        padding-left: 7em;
       }
     }
   }
   .filteredTasks {
     background-color: white;
-    padding: 1.2em 0 1.2em 0em;
+    padding: 1em 0 1em 0;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -202,52 +205,36 @@ div.wrapper {
       color: map.get($colors, "primary");
     }
   }
-
-  .header {
+  .header__switch {
     display: flex;
-    .mobile__background {
-      width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3em;
+    padding-left: 2em;
+    padding-right: 2em;
+
+    @include tablet {
+      padding-left: 4em;
+      padding-right: 4em;
     }
-    .mobile__background {
-      @include mobile {
-        display: initial;
-      }
-      @include tablet {
-        display: none;
-      }
-      @include desktop {
-        display: none;
-      }
+
+    @include desktop {
+      padding-left: 4em;
+      padding-right: 4em;
     }
-    .desktop__background {
-      @include tablet {
-        display: initial;
-      }
-      @include desktop {
-        display: initial;
-      }
-      @include mobile {
-        display: none;
-      }
-    }
+
     h1.title {
-      position: absolute;
       color: white;
-      margin-left: 1.3em;
+      font-size: 1.5rem;
       letter-spacing: 0.3em;
-      margin-top: 2em;
+      // margin-top: 2em;
+      // @include desktop {
+      //   margin-left: 12em;
+      //   width: 100%;
+      // }
     }
     .lightSwitch {
-      position: absolute;
-      right: 2em;
-      top: 3.75em;
-      width: 7%;
-
-      @include tablet {
-        position: absolute;
-        right: 10em;
-        width: 5%;
-      }
+      width: 2em;
     }
   }
 
