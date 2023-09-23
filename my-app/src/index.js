@@ -11,7 +11,7 @@ const root = createRoot(rootElement);
 
 root.render(
   <StrictMode>
-    <BrowserRouter basename={window.location.pathname || ""}>
+    <BrowserRouter>
       <App />
     </BrowserRouter>
   </StrictMode>
