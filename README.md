@@ -1,4 +1,4 @@
-##Frontend Mentor - Todo app s
+📝 Frontend Mentor - Todo app 
 
 
 #Table of contents
@@ -29,20 +29,15 @@ Toggle light and dark mode
 ![mobile-design-light](https://github.com/edenfilion/my-app/assets/112727028/e6ce1c4f-fab6-4679-a227-d7495ecf180e)
 ![mobile-design-dark](https://github.com/edenfilion/my-app/assets/112727028/c799cea6-18cc-48b8-9bb4-cbee8bc0aec8)
 ![desktop-preview](https://github.com/edenfilion/my-app/assets/112727028/d588f87a-41ce-47a9-94df-6a14a5b1b41b)
-![desktop-design-light](https://github.com/edenfilion/my-app/assets/112727028/34728246-3426-48c8-addf-b370360d995c)
-![desktop-design-dark](https://github.com/edenfilion/my-app/assets/112727028/fdf3afb0-bbd4-4def-9b6e-a600134d823e)
-![active-states-light](https://github.com/edenfilion/my-app/assets/112727028/99d5f632-8e5a-469c-bc1a-1314c5dc1c3a)
-![active-states-dark](https://github.com/edenfilion/my-app/assets/112727028/ce89d1a9-2dfa-4b9b-b33f-b58bffc2b680)
-
-
 
 My process
-Built with
-CSS custom properties
-Flexbox
-Mobile-first workflow
-SASS/SCSS - For styles
-React - JS library
+__________________________________________________________________________________________________________________
+-Built with
+-CSS custom properties
+-Flexbox
+-Mobile-first workflow
+-SASS/SCSS - For styles
+-React - JS library
 
 Author
 Eden Filion
