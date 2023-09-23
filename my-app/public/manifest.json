@@ -1,6 +1,7 @@
 {
   "short_name": "React App",
-  "name": "Create React App Sample",
+  "name": "Eden Filion",
+  "homepage": "https://edenfilion.github.io/my-app",
   "icons": [
     {
       "src": "favicon.ico",
