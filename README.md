@@ -3,13 +3,6 @@
 
 ## Table of contents
 ________________________________________________________________________________
-Overview
-- The challenge
-- Screenshot
-- Links
-- My process
-- Built with
-- Author
 
 ### Overview
 
