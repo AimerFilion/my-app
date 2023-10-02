@@ -33,6 +33,7 @@ img {
   .container {
     max-width: 35em;
     margin: 0 auto;
+    font-family: map.get($typo, "family");
   }
 
   &.wrapper.light {
@@ -63,19 +64,20 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: map.get($typo, "family");
 
     & input.input {
       border: white;
       margin-bottom: 2.5em;
       width: 100%;
       height: 3rem;
-      font-size: 0.9em;
+      font-size: 1rem;
       border-radius: 6px;
       font-family: map.get($typo, "family");
       display: flex;
       align-items: start;
-      // margin: 0 2.5em 2.5em 0;
-      padding-right: 16em;
+      // margin: 0 2em 0 2em;
+      padding-right: 10em;
       padding-left: 3em;
       // gap: 1.5em;
 
@@ -106,6 +108,7 @@ img {
     gap: 1.5em;
     height: 3rem;
     width: 100%;
+    font-family: map.get($typo, "family");
 
     &.last {
       border-bottom-left-radius: 6px 6px;

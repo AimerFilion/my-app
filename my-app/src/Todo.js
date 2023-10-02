@@ -105,8 +105,6 @@ const Todo = ({ darkMode, setDarkMode }) => {
             </span>
           </div>
         </ul>
-
-        <span className="drag">Drag and drop to reorder list</span>
       </div>
     </>
   );
