@@ -37,13 +37,13 @@ const Todo = ({ darkMode, setDarkMode }) => {
 
   const filteredTasks = tasks.filter((task) => {
     if (filter === "All") {
-      return true; // Keep all tasks
+      return true;
     } else if (filter === "Active") {
-      return !task.completed; // Keep only tasks that are not completed
+      return !task.completed;
     } else if (filter === "Completed") {
-      return task.completed; // Keep only tasks that are completed
+      return task.completed;
     }
-    return true; // Default: Keep all tasks
+    return true;
   });
 
   return (

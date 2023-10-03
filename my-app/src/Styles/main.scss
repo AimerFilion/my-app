@@ -146,12 +146,10 @@ img {
       height: 20px;
       border-radius: 50%;
       border: solid 0.1em map.get($light, "line");
-      // margin-right: 1em;
       transition: border-color 0.3s;
 
       &:hover {
         border: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
-        // border-width: 0.1em;
         border-radius: 50%;
       }
 
@@ -230,11 +228,6 @@ img {
       color: white;
       font-size: 1.5rem;
       letter-spacing: 0.3em;
-      // margin-top: 2em;
-      // @include desktop {
-      //   margin-left: 12em;
-      //   width: 100%;
-      // }
     }
     .lightSwitch {
       width: 2em;
